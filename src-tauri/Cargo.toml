@@ -1,0 +1,30 @@
+[package]
+name = "kaiju-tauri"
+version = "0.1.0"
+description = "方舟随机肉鸽生成器"
+authors = ["Rosmontis220"]
+license = "MIT"
+repository = "https://github.com/Rosmontis220/ArknightsRandomRogue_Tauri"
+edition = "2021"
+rust-version = "1.77.2"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+# The `_lib` suffix keeps the lib name distinct from the bin name, which Windows
+# requires (see rust-lang/cargo#8519).
+name = "kaiju_tauri_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.6.3", features = [] }
+
+[dependencies]
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+log = "0.4"
+tauri = { version = "2.11.3", features = [] }
+tauri-plugin-log = "2"
+# Opens the repository link on the About screen in the system browser. The webview has
+# no address bar, so following the link in place would strand the user.
+tauri-plugin-opener = "2"
